@@ -9,19 +9,20 @@ import java.sql.ResultSet;
 public class ScalarQuery {
 
 	public static void main(String [] args){	
-		Connection conn;
-		Statement stmt;
-		ResultSet rs;
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
 		
-		try{	
+		try {
 				
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels?user=root&password=root");			
 			stmt = conn.createStatement();    		
     		rs = stmt.executeQuery("SELECT COUNT(*) FROM products;");
     		
-    		if(rs.next()){
-    			int count = rs.getInt(1);
-    			System.out.println(" The Products table has " + count + " rows.");
+    		if(rs.next()) {
+				int count = rs.getInt(1);
+				System.out.println(" The Products table has " + count + " rows.");
+			}
     		else{
     			System.out.println("Count query on products table failed");
     		}
