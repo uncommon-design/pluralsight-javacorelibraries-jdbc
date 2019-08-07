@@ -1,4 +1,4 @@
-package com.pluralsight.jdbc.m2.after;
+package com.pluralsight.jdbc.m2;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-public class ScalarQuery {
+public class DsScalarQuery {
 
 	public static void main(String [] args){	
 		Connection conn = null;
@@ -15,7 +15,7 @@ public class ScalarQuery {
 		
 		try {
 				
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels?user=root&password=root");			
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels?user=root&password=root&serverTimezone=UTC");			
 			stmt = conn.createStatement();    		
     		rs = stmt.executeQuery("SELECT COUNT(*) FROM products;");
     		
