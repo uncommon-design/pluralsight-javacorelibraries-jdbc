@@ -1,22 +1,3 @@
-Skip to content
- 
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@rmonson 
-4
-0 1 tomitribe/jsonb-basic-tutorial
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Security  Insights  Settings
-jsonb-basic-tutorial/pom.xml
-@cesarhernandezgt cesarhernandezgt maven compiler plugin update, removed unused imports and updateding g…
-85350ee 7 days ago
-@rmonson @cesarhernandezgt
-96 lines (80 sloc)  2.88 KB
-    
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Licensed to the Apache Software Foundation (ASF) under one or more
@@ -32,16 +13,19 @@ jsonb-basic-tutorial/pom.xml
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+<project 	xmlns="http://maven.apache.org/POM/4.0.0" 
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>pluralsight</groupId>
-  <artifactId>javacorelibraries-jdbc</artifactId>
+  <artifactId>java-core-libraries-jdbc</artifactId>
   <version>1.0-SNAPSHOT</version>
-
-  <name>exersize-files</name>
-  <description>Exersize files for the Pluralsight course, Java core libraries: JDBC by Richard Monson-Haefel</description>
+  <packaging>pom</packaging>
+  <name>exercise-files</name>
+  <description>Exercise files for the Pluralsight course, Java core libraries: JDBC by Richard Monson-Haefel</description>
+  <url>https://github.com/uncommon-design/pluralsight-javacorelibraries-jdbc.git</url>
 
   <dependencies>
   
@@ -84,5 +68,4 @@ jsonb-basic-tutorial/pom.xml
 
     </plugins>
   </build>
-
 </project>
