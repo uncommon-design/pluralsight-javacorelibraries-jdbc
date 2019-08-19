@@ -13,20 +13,17 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package m2c2;
+package m2c1;
 
-import com.pluralsight.corejdbc.inject.CdiContainer;
-import com.pluralsight.corejdbc.m2c2.ProductsComponent;
+import com.pluralsight.corejdbc.m2c1.ProductsComponent;
 
 public class Main {
 	
 	public static void main(String[] args) throws Exception{
 
-		try(CdiContainer cdi = new CdiContainer()){
-			
-			ProductsComponent comp = (ProductsComponent) cdi.getCdiReference(ProductsComponent.class);						
-			System.out.println("The product count is " + comp.getProductCount());
-			
-		}
+		ProductsComponent comp = new ProductsComponent();
+							
+		System.out.println("The product count is " + comp.getProductCount());
+
 	}
 }

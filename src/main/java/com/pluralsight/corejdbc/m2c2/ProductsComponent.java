@@ -46,11 +46,9 @@ public class ProductsComponent{
     		
     		if(rs.next()) {
 				int count = rs.getInt(1);
-				System.out.println(" The Products table has " + count + " rows-s.");
+				return count;
 			}
-    		else{
-    			System.out.println("Count query on products table failed");
-    		}
+    		return 0;
     				   
 		}catch (SQLException ex){
     		// handle any errors

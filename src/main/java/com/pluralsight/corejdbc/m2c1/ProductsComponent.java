@@ -6,9 +6,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-public class ProductComponent {
+public class ProductsComponent {
 
-	public void getProductCount() {	
+	public int getProductCount() {	
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -21,11 +21,9 @@ public class ProductComponent {
     		
     		if(rs.next()) {
 				int count = rs.getInt(1);
-				System.out.println(" The Products table has " + count + " rows.");
+				return count;
 			}
-    		else{
-    			System.out.println("Count query on products table failed");
-    		}
+    		return 0;
     				   
 		}catch (SQLException ex){
     		// handle any errors
@@ -38,6 +36,8 @@ public class ProductComponent {
     		try { if (stmt != null) stmt.close(); } catch (Exception e) {};
     		try { if (conn != null) conn.close(); } catch (Exception e) {};
     	}
+    	
+    	return 0;
     }
 
 }
