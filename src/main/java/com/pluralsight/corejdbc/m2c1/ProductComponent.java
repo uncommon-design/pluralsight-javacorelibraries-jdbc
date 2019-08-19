@@ -1,4 +1,4 @@
-package com.pluralsight.jdbc.m2;
+package com.pluralsight.corejdbc.m2c1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,16 +6,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-public class DsScalarQuery {
+public class ProductComponent {
 
-	public static void main(String [] args){	
+	public void getProductCount() {	
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		
 		try {
 				
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels?user=root&password=root&serverTimezone=UTC");			
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");			
 			stmt = conn.createStatement();    		
     		rs = stmt.executeQuery("SELECT COUNT(*) FROM products;");
     		
@@ -39,4 +39,5 @@ public class DsScalarQuery {
     		try { if (conn != null) conn.close(); } catch (Exception e) {};
     	}
     }
+
 }
