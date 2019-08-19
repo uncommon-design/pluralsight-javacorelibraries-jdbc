@@ -19,11 +19,11 @@
 			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>pluralsight</groupId>
-  <artifactId>pluralsight-core-jdbc</artifactId>
+  <groupId>com.pluralsight</groupId>
+  <artifactId>corejdbc</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>exercise-files</name>
+  <name>corejdbc</name>
   <description>Exercise files for the Pluralsight course, Java core libraries: JDBC by Richard Monson-Haefel</description>
   <url>https://github.com/uncommon-design/pluralsight-javacorelibraries-jdbc.git</url>
 
@@ -85,29 +85,54 @@
   <build>
     <finalName>corejdbc</finalName>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.1</version>
-        <configuration>
-          <source>8</source>
-          <target>8</target>
-        </configuration>
-      </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>Main</mainClass>
+								</transformer>
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- now make the jar chmod +x style executable -->
+			<plugin>
+				<groupId>org.skife.maven</groupId>
+				<artifactId>really-executable-jar-maven-plugin</artifactId>
+				<version>1.1.0</version>
+				<configuration>
+					<programFile>${project.artifactId}</programFile>
+				</configuration>
 
-      <!-- include all the dependencies into the jar so it's easier to execute the example -->
-      <plugin>
-        <groupId>org.fusesource.mvnplugins</groupId>
-        <artifactId>maven-uberize-plugin</artifactId>
-        <version>1.14</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals><goal>uberize</goal></goals>
-          </execution>
-        </executions>
-      </plugin>
-
-    </plugins>
-  </build>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>really-executable-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

@@ -23,11 +23,13 @@ import java.sql.Statement;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
+import com.pluralsight.corejdbc.inject.MySqlDataSource;
 
 public class ProductsComponent{
 	
 
 	@Inject
+	@MySqlDataSource
 	private DataSource ds;
 	
 	public int getProductCount() {

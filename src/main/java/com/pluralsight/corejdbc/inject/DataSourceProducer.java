@@ -8,6 +8,7 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 public class DataSourceProducer {
 
 	@Produces
+	@MySqlDataSource
 	public DataSource produceDataSource() {
 		// read properties from somewhere here
 		
