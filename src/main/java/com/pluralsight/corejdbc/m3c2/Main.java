@@ -13,12 +13,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package com.pluralsight.corejdbc.m3c2;
+package com.pluralsight.corejdbc.m3c1;
 
 import java.awt.Color;
-
-import com.pluralsight.corejdbc.inject.CdiContainer;
-import com.pluralsight.corejdbc.m3c2.ProductsComponent;
 
 import util.PrintUtil;
 
@@ -26,11 +23,9 @@ public class Main {
 	
 	public static void main(String[] args) throws Exception{
 
-		try(CdiContainer cdi = new CdiContainer()){
+		ProductsComponent comp = new ProductsComponent();
 			
-			ProductsComponent comp = (ProductsComponent) cdi.getCdiReference(ProductsComponent.class);						
-			System.out.println("The product count is " + comp.getProductCount());
+		System.out.println("The product count is " + comp.getProductCount());
 
-		}
 	}
 }
