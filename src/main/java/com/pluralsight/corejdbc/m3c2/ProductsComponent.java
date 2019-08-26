@@ -1,4 +1,4 @@
-package com.pluralsight.corejdbc.m3c1;
+package com.pluralsight.corejdbc.m3c2;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +17,7 @@ public class ProductsComponent {
 				
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");			
 			stmt = conn.createStatement();    		
-    		rs = stmt.executeQuery("SELECT COUNT(*) FROM xproducts;");
+    		rs = stmt.executeQuery("SELECT COUNT(*) FROM products;");
     		
     		if(rs.next()) {
 				int count = rs.getInt(1);

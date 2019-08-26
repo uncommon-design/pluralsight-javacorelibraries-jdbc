@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package com.pluralsight.corejdbc.m3c1;
+package com.pluralsight.corejdbc.m3c2;
 
 import java.awt.Color;
 

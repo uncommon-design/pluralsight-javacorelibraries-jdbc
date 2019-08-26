@@ -24,6 +24,9 @@ public class Main {
 				case "m3c2":
 					com.pluralsight.corejdbc.m3c2.Main.main(null);
 					break;
+				case "m3c3":
+					PrintUtil.colorPrint("The demo code for m3c3 is for reference only and cannot be run", Color.orange, true);
+					break;
 				default:
 					inValidMessage();
 					
