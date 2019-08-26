@@ -1,4 +1,4 @@
-package com.pluralsight.corejdbc.inject;
+package com.pluralsight.corejdbc.m3c3;
 
 import javax.enterprise.inject.Produces;
 import javax.sql.DataSource;
