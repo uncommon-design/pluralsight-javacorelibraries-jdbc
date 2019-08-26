@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package m2c2;
+package com.pluralsight.corejdbc.m2c2;
 
 import com.pluralsight.corejdbc.inject.CdiContainer;
 import com.pluralsight.corejdbc.m2c2.ProductsComponent;

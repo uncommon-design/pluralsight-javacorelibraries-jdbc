@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package m2c1;
+package com.pluralsight.corejdbc.m2c1;
 
 import com.pluralsight.corejdbc.m2c1.ProductsComponent;
 
