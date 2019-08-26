@@ -13,12 +13,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package com.pluralsight.corejdbc.m2c2;
+package com.pluralsight.corejdbc.m3c2;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.inject.Inject;
@@ -32,7 +30,7 @@ public class ProductsComponent{
 	@MySqlDataSource
 	private DataSource ds;
 	
-	public int getProductCount() {
+	public int getProductCount() throws Exception{
 		
 		Connection conn = null;
 		Statement stmt = null;
@@ -50,18 +48,11 @@ public class ProductsComponent{
 			}
     		return 0;
     				   
-		}catch (SQLException ex){
-    		// handle any errors
-    		System.out.println("SQLException: " + ex.getMessage());
-    		System.out.println("SQLState: " + ex.getSQLState());
-    		System.out.println("VendorError: " + ex.getErrorCode());
-		}
-		finally {
+		}finally {
     		try { if (rs != null) rs.close(); } catch (Exception e) {};
     		try { if (stmt != null) stmt.close(); } catch (Exception e) {};
     		try { if (conn != null) conn.close(); } catch (Exception e) {};
     	}
-		
-		return 0;
+
 	}
 }
