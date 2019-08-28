@@ -15,32 +15,12 @@ limitations under the License.
 
 package com.pluralsight.corejdbc.m3c5;
 
+
 public class Main {
 	
 	public static void main(String[] args) throws Exception{
 
-		final String errorMsg = "You must secify either JEE or CDI as an imput paramters";
-
-		if (args.length != 1) {
-			System.out.println(errorMsg);
-			return;
-		}
-		
-		String argValue = args[0];
-
-		if (argValue.equalsIgnoreCase("A")) {
-			ProductsComponent_A comp = new ProductsComponent_A();
-			comp.printProductList();
-		}else if(argValue.equalsIgnoreCase("B")) {
-			ProductsComponent_C comp = new ProductsComponent_C();
-			comp.printProductList();
-		}else if(argValue.equalsIgnoreCase("C")) {
-			ProductsComponent_C comp = new ProductsComponent_C();
-			comp.printProductList();
-		}else {
-			System.out.println(errorMsg);
-		}
-		
-
+		ProductsComponent comp = new ProductsComponent();
+		comp.printProductList();
 	}
 }
