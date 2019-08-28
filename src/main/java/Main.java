@@ -7,7 +7,7 @@ import util.PrintUtil;
 public class Main {
 	
 	public static void main(String [] args) throws Exception{
-		if(args.length != 1) {
+		if(args.length == 0) {
 			Main.inValidMessage();
 			return;
 		}
@@ -25,7 +25,23 @@ public class Main {
 					com.pluralsight.corejdbc.m3c2.Main.main(null);
 					break;
 				case "m3c3":
-					PrintUtil.colorPrint("The demo code for m3c3 is for reference only and cannot be run", Color.orange, true);
+					String[] myargs_m3c3 = null;
+					if(args.length == 2) {
+						myargs_m3c3 = new String[1];
+						myargs_m3c3[0] = args[1];
+					}
+					com.pluralsight.corejdbc.m3c3.Main.main(myargs_m3c3);
+					break;
+				case "m3c4":
+					com.pluralsight.corejdbc.m3c4.Main.main(null);
+					break;
+				case "m3c5":
+					String[] myargs_m3c5 = null;
+					if(args.length == 2) {
+						myargs_m3c5 = new String[1];
+						myargs_m3c5[0] = args[1];
+					}
+					com.pluralsight.corejdbc.m3c5.Main.main(myargs_m3c5);
 					break;
 				default:
 					inValidMessage();

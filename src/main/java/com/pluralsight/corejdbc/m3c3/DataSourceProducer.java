@@ -7,16 +7,19 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 
 public class DataSourceProducer {
 
+	public MysqlDataSource mySqldataSource = null;
+
 	@Produces
 	@MySqlDataSource
 	public DataSource produceDataSource() {
 		// read properties from somewhere here
-		
-		MysqlDataSource mySqldataSource = new MysqlDataSource();
-		mySqldataSource.setPassword("pluralsight");
-		mySqldataSource.setUser("root");
-		mySqldataSource.setURL("jdbc:mysql://localhost:3306/classicmodels?serverTimezone=UTC");
-		
+
+		if (mySqldataSource == null) {
+			mySqldataSource = new MysqlDataSource();
+			mySqldataSource.setPassword("pluralsight");
+			mySqldataSource.setUser("root");
+			mySqldataSource.setURL("jdbc:mysql://localhost:3306/classicmodels?serverTimezone=UTC");
+		}
 		return mySqldataSource;
 	}
 }

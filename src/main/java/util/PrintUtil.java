@@ -1,7 +1,14 @@
 package util;
 import java.awt.Color;
+import java.util.Arrays;
 
 public class PrintUtil {
+	
+	public static String repeatChars(char chr, int count) {
+		char[] chars = new char[count];
+		Arrays.fill(chars, chr);
+		return String.valueOf(chars);
+	}
 	
     public static void colorPrint(String txt, Color color, boolean line) {
     	

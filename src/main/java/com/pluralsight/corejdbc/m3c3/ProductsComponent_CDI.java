@@ -16,42 +16,26 @@ limitations under the License.
 package com.pluralsight.corejdbc.m3c3;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
-public class ProductsComponent{
+public class ProductsComponent_CDI{
 	
 
 	@Inject
 	@MySqlDataSource
-	private DataSource ds;
+	DataSource dataSource;
 	
-	public int getProductCount() throws Exception{
+	public boolean getProductCount() throws Exception{
 		
-		Connection conn = null;
-		Statement stmt = null;
-		ResultSet rs = null;
+		Connection connection = dataSource.getConnection();
 		
-		try {
-
-			conn = ds.getConnection();
-			stmt = conn.createStatement();    		
-    		rs = stmt.executeQuery("SELECT COUNT(*) FROM products;");
-    		
-    		if(rs.next()) {
-				int count = rs.getInt(1);
-				return count;
-			}
-    		return 0;
-    				   
-		}finally {
-    		try { if (rs != null) rs.close(); } catch (Exception e) {};
-    		try { if (stmt != null) stmt.close(); } catch (Exception e) {};
-    		try { if (conn != null) conn.close(); } catch (Exception e) {};
-    	}
-
+		boolean isValid = connection.isValid(2);
+		
+		connection.close();
+		
+		return isValid;
+	
 	}
 }
