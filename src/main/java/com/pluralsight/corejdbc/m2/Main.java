@@ -1,4 +1,4 @@
-package com.pluralsight.corejdbc.m2c1;
+package com.pluralsight.corejdbc.m2;
 
 import java.awt.Color;
 import util.PrintUtil;

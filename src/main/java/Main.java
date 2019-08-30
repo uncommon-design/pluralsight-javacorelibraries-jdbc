@@ -15,7 +15,7 @@ public class Main {
 		try {
 			switch(args[0]){
 				case "m2c1":
-					com.pluralsight.corejdbc.m2c1.Main.main(null);
+					com.pluralsight.corejdbc.m2.Main.main(null);
 					break;
 				case "m3c1":
 					com.pluralsight.corejdbc.m3c1.Main.main(null);
@@ -31,11 +31,25 @@ public class Main {
 					}
 					com.pluralsight.corejdbc.m3c3.Main.main(myargs_m3c3);
 					break;
-				case "m3c4":
-					com.pluralsight.corejdbc.m3c4.Main.main(null);
+				case "m4c1":
+					com.pluralsight.corejdbc.m4c1.Main.main(null);
 					break;
-				case "m3c5":
-					com.pluralsight.corejdbc.m3c5.Main.main(null);
+				case "m4c2":
+					com.pluralsight.corejdbc.m4c3.Main.main(null);
+					break;
+				case "m4c3":
+					com.pluralsight.corejdbc.m4c5.Main.main(null);
+					break;
+				case "m5c1":
+					String[] myargs_m5c31 = null;
+					if(args.length == 2) {
+						myargs_m5c31 = new String[1];
+						myargs_m5c31[0] = args[1];
+					}
+					com.pluralsight.corejdbc.m5c1.Main.main(myargs_m5c31);
+					break;
+				case "m6c1":
+					com.pluralsight.corejdbc.tryWithResources.Main.main(null);
 					break;
 				default:
 					inValidMessage();

@@ -1,4 +1,4 @@
-package com.pluralsight.corejdbc.m3c4;
+package com.pluralsight.corejdbc.m4c1;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
@@ -13,16 +13,13 @@ public class ProductsComponent {
 		Connection connection = DriverManager.getConnection(
 				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 		Statement statement = connection.createStatement();
-		ResultSet resultSet = statement.executeQuery("SELECT * FROM products;");
+		ResultSet resultSet = 
+		 statement.executeQuery("SELECT * FROM products WHERE buyPrice BETWEEN 50.00 AND 100.00");
 		
 		while(resultSet.next()) {
 			
-			String name = resultSet.getString(2);
-			int quantity = resultSet.getInt(7);
-			double price = resultSet.getDouble(8);
-			
-			System.out.format("%-45s %5d %10.2f%n", name, quantity, price);
-	
+			String name = resultSet.getString("productName");
+			System.out.println(name);
 		}
 
 		resultSet.close();
