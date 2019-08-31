@@ -62,6 +62,15 @@ public class Demo {
 				case "m5c3":
 					com.pluralsight.corejdbc.m5c3.Main.main(null);
 					break;
+				case "m5c4":
+					String[] myargs_m5c4 = null;
+					if(args.length == 3) {
+						myargs_m5c4 = new String[2];
+						myargs_m5c4[0] = args[1];
+						myargs_m5c4[1] = args[2];
+					}
+					com.pluralsight.corejdbc.m5c4.Main.main(myargs_m5c4);
+					break;
 				case "m6c1":
 					com.pluralsight.corejdbc.tryWithResources.Main.main(null);
 					break;
