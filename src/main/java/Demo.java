@@ -3,11 +3,11 @@ import java.sql.SQLException;
 
 import util.PrintUtil;
 
-public class Main {
+public class Demo {
 	
 	public static void main(String [] args) throws Exception{
 		if(args.length == 0) {
-			Main.inValidMessage();
+			Demo.inValidMessage();
 			return;
 		}
 		
@@ -41,12 +41,26 @@ public class Main {
 					com.pluralsight.corejdbc.m4c5.Main.main(null);
 					break;
 				case "m5c1":
-					String[] myargs_m5c31 = null;
-					if(args.length == 2) {
-						myargs_m5c31 = new String[1];
-						myargs_m5c31[0] = args[1];
+					String[] myargs_m5c1 = null;
+					if(args.length == 4) {
+						myargs_m5c1 = new String[3];
+						myargs_m5c1[0] = args[1];
+						myargs_m5c1[1] = args[2];
+						myargs_m5c1[2] = args[3];
 					}
-					com.pluralsight.corejdbc.m5c1.Main.main(myargs_m5c31);
+					com.pluralsight.corejdbc.m5c2.Main.main(myargs_m5c1);
+					break;
+				case "m5c2":
+					String[] myargs_m5c2 = null;
+					if(args.length == 3) {
+						myargs_m5c2 = new String[2];
+						myargs_m5c2[0] = args[1];
+						myargs_m5c2[1] = args[2];
+					}
+					com.pluralsight.corejdbc.m5c2.Main.main(myargs_m5c2);
+					break;
+				case "m5c3":
+					com.pluralsight.corejdbc.m5c3.Main.main(null);
 					break;
 				case "m6c1":
 					com.pluralsight.corejdbc.tryWithResources.Main.main(null);
