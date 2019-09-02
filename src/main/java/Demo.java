@@ -15,7 +15,7 @@ public class Demo {
 		try {
 			switch(args[0]){
 				case "m2c1":
-					com.pluralsight.corejdbc.m2.Main.main(null);
+					com.pluralsight.corejdbc.m2c1.Main.main(null);
 					break;
 				case "m3c1":
 					com.pluralsight.corejdbc.m3c1.Main.main(null);
@@ -35,10 +35,10 @@ public class Demo {
 					com.pluralsight.corejdbc.m4c1.Main.main(null);
 					break;
 				case "m4c2":
-					com.pluralsight.corejdbc.m4c3.Main.main(null);
+					com.pluralsight.corejdbc.m4c2.Main.main(null);
 					break;
 				case "m4c3":
-					com.pluralsight.corejdbc.m4c5.Main.main(null);
+					com.pluralsight.corejdbc.m4c3.Main.main(null);
 					break;
 				case "m5c1":
 					String[] myargs_m5c1 = null;
@@ -48,7 +48,7 @@ public class Demo {
 						myargs_m5c1[1] = args[2];
 						myargs_m5c1[2] = args[3];
 					}
-					com.pluralsight.corejdbc.m5c2.Main.main(myargs_m5c1);
+					com.pluralsight.corejdbc.m5c1.Main.main(myargs_m5c1);
 					break;
 				case "m5c2":
 					String[] myargs_m5c2 = null;
@@ -71,7 +71,7 @@ public class Demo {
 					}
 					com.pluralsight.corejdbc.m5c4.Main.main(myargs_m5c4);
 					break;
-				case "m6c1":
+				case "try_w_resources":
 					com.pluralsight.corejdbc.tryWithResources.Main.main(null);
 					break;
 				default:
