@@ -23,7 +23,7 @@ public static void main(String[] args) throws Exception {
 		
 
 		try {
-			ProductsComponent comp = new ProductsComponent();
+			ProductsComponent_TwR2 comp = new ProductsComponent_TwR2();
 			comp.printProductList();	
 		} catch (Exception exception) {
 			util.ExceptionHandler.handleException(exception);
