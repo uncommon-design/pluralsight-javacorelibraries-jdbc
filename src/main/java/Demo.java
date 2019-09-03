@@ -24,21 +24,43 @@ public class Demo {
 					com.pluralsight.corejdbc.m3c2.Main.main(null);
 					break;
 				case "m3c3":
-					String[] myargs_m3c3 = null;
-					if(args.length == 2) {
-						myargs_m3c3 = new String[1];
-						myargs_m3c3[0] = args[1];
+					String mainToRun = args[1];
+					if(mainToRun.equalsIgnoreCase("JEE")) {
+						com.pluralsight.corejdbc.m3c3.Main_JEE.main(null);
+					}else if(mainToRun.equalsIgnoreCase("CDI")) {
+						com.pluralsight.corejdbc.m3c3.Main_CDI.main(null);
+					}else {
+						System.out.println("You must secify either JEE or CDI as an imput paramters");
 					}
-					com.pluralsight.corejdbc.m3c3.Main.main(myargs_m3c3);
 					break;
 				case "m4c1":
 					com.pluralsight.corejdbc.m4c1.Main.main(null);
 					break;
 				case "m4c2":
-					com.pluralsight.corejdbc.m4c2.Main.main(null);
+					com.pluralsight.corejdbc.m4c2.Main_TwR.main(null);
 					break;
 				case "m4c3":
-					com.pluralsight.corejdbc.m4c3.Main.main(null);
+					String[] myargs_m4c3 = null;
+					if(args.length == 3) {
+						myargs_m4c3 = new String[2];
+						myargs_m4c3[0] = args[1];
+						myargs_m4c3[1] = args[2];
+
+					}
+					com.pluralsight.corejdbc.m4c3.Main.main(myargs_m4c3);
+					break;
+				case "m4c4":
+					String[] myargs_m4c4 = null;
+					if(args.length == 3) {
+						myargs_m4c4 = new String[2];
+						myargs_m4c4[0] = args[1];
+						myargs_m4c4[1] = args[2];
+
+					}
+					com.pluralsight.corejdbc.m4c4.Main.main(myargs_m4c4);
+					break;
+				case "m4c5":
+					com.pluralsight.corejdbc.m4c5.Main.main(null);
 					break;
 				case "m5c1":
 					String[] myargs_m5c1 = null;
@@ -70,9 +92,6 @@ public class Demo {
 						myargs_m5c4[1] = args[2];
 					}
 					com.pluralsight.corejdbc.m5c4.Main.main(myargs_m5c4);
-					break;
-				case "try_w_resources":
-					com.pluralsight.corejdbc.tryWithResources.Main.main(null);
 					break;
 				default:
 					inValidMessage();

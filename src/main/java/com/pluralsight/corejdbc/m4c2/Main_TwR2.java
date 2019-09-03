@@ -13,14 +13,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package com.pluralsight.corejdbc.tryWithResources;
+package com.pluralsight.corejdbc.m4c2;
 
+import com.pluralsight.corejdbc.m4c3.ProductsComponent;
 
-public class Main {
+public class Main_TwR2 {
 	
-	public static void main(String[] args) throws Exception{
+public static void main(String[] args) throws Exception {
+		
 
-		ProductsComponent comp = new ProductsComponent();
-		comp.printProductList();
+		try {
+			ProductsComponent comp = new ProductsComponent();
+			comp.printProductList();	
+		} catch (Exception exception) {
+			util.ExceptionHandler.handleException(exception);
+		}
 	}
 }
