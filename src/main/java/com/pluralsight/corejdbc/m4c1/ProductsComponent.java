@@ -14,16 +14,16 @@ public class ProductsComponent {
 				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = 
-		statement.executeQuery("SELECT * FROM products");
+		statement.executeQuery("SELECT * FROM products");	
 		
 		while(resultSet.next()) {
-			
-			String name = resultSet.getString("xproductName");
+			String name = resultSet.getString("productName");
 			System.out.println(name);
-		}
-
+		}		
+		
 		resultSet.close();
 		statement.close();
 		connection.close();
+		
 	}
 }

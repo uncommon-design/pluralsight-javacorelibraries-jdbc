@@ -13,7 +13,7 @@ public static void main(String[] args) throws Exception {
 				double low = Double.parseDouble(args[0]);
 				double high = Double.parseDouble(args[1]);
 				ProductsComponent comp = new ProductsComponent();
-				comp.printProductList(low, high);
+				comp.printProductList();
 			}else {
 				System.out.println(msg);
 			}
