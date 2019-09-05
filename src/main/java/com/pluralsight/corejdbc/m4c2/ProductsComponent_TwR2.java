@@ -15,7 +15,7 @@ public class ProductsComponent_TwR2 {
 				Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery("SELECT * FROM products;");) {
 			
-			statement.executeQuery("SELECT * FROM products");
+			statement.executeQuery("SELECT * FROM Xproducts");
 
 			while (resultSet.next()) {
 

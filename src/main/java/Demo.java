@@ -33,11 +33,23 @@ public class Demo {
 						System.out.println("You must secify either JEE or CDI as an imput paramters");
 					}
 					break;
-				case "m4c1":
+				case "m4c1":					
 					com.pluralsight.corejdbc.m4c1.Main.main(null);
 					break;
 				case "m4c2":
-					com.pluralsight.corejdbc.m4c2.Main_TwR.main(null);
+					if(args.length == 2) {
+						if(args[1].equalsIgnoreCase("TCF")) {
+							com.pluralsight.corejdbc.m4c2.Main_TCF.main(null);
+							break;
+						}else if(args[1].equalsIgnoreCase("TwR")) {
+							com.pluralsight.corejdbc.m4c2.Main_TwR.main(null);
+							break;
+						}else if(args[1].equalsIgnoreCase("TwR2")) {
+							com.pluralsight.corejdbc.m4c2.Main_TwR2.main(null);
+							break;
+						}
+					}
+					System.out.println("You must secify which main you wish to run: TCF, TwR, or TwR2");
 					break;
 				case "m4c3":
 					String[] myargs_m4c3 = null;
