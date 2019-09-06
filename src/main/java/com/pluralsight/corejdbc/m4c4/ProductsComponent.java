@@ -13,10 +13,13 @@ public class ProductsComponent {
 				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 
 				PreparedStatement preparedStatement = connection
-						.prepareStatement("SELECT * FROM products WHERE buyPrice BETWEEN ? AND ?");) {
+						.prepareStatement("SELECT * FROM products "
+								+ "WHERE buyPrice BETWEEN ? AND ?");) {
 
 			preparedStatement.setDouble(1, lowPrice);
 			preparedStatement.setDouble(2, highPrice);
+			
+			
 
 			try (ResultSet resultSet = preparedStatement.executeQuery();) {
 

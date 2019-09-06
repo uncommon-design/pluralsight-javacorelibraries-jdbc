@@ -5,12 +5,12 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 
 		try {
-			int orderNumber = Integer.parseInt(args[0]);
-			int lineNumber = Integer.parseInt(args[1]);
-			int newQuantity = Integer.parseInt(args[2]);
-
+			int orderNumber = 10138;
+			String productNumber = "S24_2022";
+			int newQuantity = 88;
+			
 			OrderComponent comp = new OrderComponent();
-			comp.updateOrderQuantity(orderNumber, lineNumber, newQuantity);
+			comp.updateOrderQuantity(orderNumber, productNumber, newQuantity);
 
 			System.out.println("Quantity changed to " + newQuantity);
 		} catch (Exception exception) {

@@ -7,21 +7,21 @@ import java.sql.PreparedStatement;
 
 public class OrderComponent {
 	
-	public void updateOrderQuantity(int orderNumber, int lineNumber, int newQuantity) throws Exception {
+	public void updateOrderQuantity(int orderNumber, String productCode, int newQuantity) throws Exception {
 
 		Connection connection = DriverManager.getConnection(
 				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 		
 		String query = "update orderdetails set quantityOrdered=? " + 
 						"where orderNumber = ? " + 
-						"  and orderLineNumber = ?";
+						"  and productCode = ?";
 		
 		PreparedStatement preparedStatement = 
 				  connection.prepareStatement(query);
 		
 		preparedStatement.setInt(1, newQuantity);
 		preparedStatement.setInt(2, orderNumber);
-		preparedStatement.setInt(3, lineNumber);
+		preparedStatement.setString(3, productCode);
 		preparedStatement.executeUpdate();
 
 		preparedStatement.close();
