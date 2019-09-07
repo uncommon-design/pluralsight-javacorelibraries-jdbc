@@ -19,11 +19,12 @@ public class HrComponent {
 				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 		
 		PreparedStatement preparedStatement = 
-				  connection.prepareStatement(
-						"INSERT INTO employees "
-				  		+ "(lastName, firstName, extension, email, officeCode, jobTitle) " 
-				  		+ "VALUES (?, ?, ?, ?, ?, ?)",
-				  		Statement.RETURN_GENERATED_KEYS);
+				connection.prepareStatement(
+				"INSERT INTO employees "
+			  + "(lastName, firstName, extension, email, officeCode, jobTitle) " 
+			  + "VALUES (?, ?, ?, ?, ?, ?)",
+			  
+				Statement.RETURN_GENERATED_KEYS);
 				
 		preparedStatement.setString(1, lastName);
 		preparedStatement.setString(2, firstName);

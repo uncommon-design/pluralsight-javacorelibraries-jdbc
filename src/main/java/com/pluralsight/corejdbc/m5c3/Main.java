@@ -7,7 +7,9 @@ public class Main {
 		try {
 			HrComponent comp = new HrComponent();
 
-			int key = comp.addEmployee("Monson-Haefel", "Richard", "x104", "monson@classicmodelcars.com", "3",
+			int key = comp.addEmployee(
+					"Williams", "Roger", "x104", 
+					"rwilliams@classicmodelcars.com", "3",
 					"Sales Manager (NA)");
 
 			System.out.println("The auto-generated primary key = " + key);
