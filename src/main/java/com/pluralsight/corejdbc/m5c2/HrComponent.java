@@ -15,7 +15,8 @@ public class HrComponent {
 				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 		
 		PreparedStatement preparedStatement = 
-				  connection.prepareStatement("UPDATE employees SET reportsTo = ? WHERE reportsTo = ?");
+				  connection.prepareStatement(
+						  "UPDATE employees SET reportsTo = ? WHERE reportsTo = ?");
 				
 		preparedStatement.setString(1, replacementManager);
 		preparedStatement.setString(2, managerBeingReplaced);

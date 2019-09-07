@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 		try {
-			String fromManager = "1056";
+			String fromManager = "1143";
 			String toManager = "1621";
 
 			HrComponent comp = new HrComponent();

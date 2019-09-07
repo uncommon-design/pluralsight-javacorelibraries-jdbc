@@ -12,9 +12,9 @@ public class OrderComponent {
 		Connection connection = DriverManager.getConnection(
 				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 		
-		String query = "update orderdetails set quantityOrdered=? " + 
-						"where orderNumber = ? " + 
-						"  and productCode = ?";
+		String query =  "UPDATE orderdetails SET quantityOrdered=? " + 
+						"WHERE orderNumber = ? " + 
+						"  AND productCode = ?";
 		
 		PreparedStatement preparedStatement = 
 				  connection.prepareStatement(query);
