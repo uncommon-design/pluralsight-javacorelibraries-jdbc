@@ -14,7 +14,8 @@ public class ProductsComponent {
 				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 
 				PreparedStatement preparedStatement = connection
-						.prepareStatement("SELECT * FROM products");
+						.prepareStatement("select productName, quantityInStock, buyPrice "
+								        + "from products");
 				ResultSet resultSet = preparedStatement.executeQuery();) {
 
 			while (resultSet.next()) {

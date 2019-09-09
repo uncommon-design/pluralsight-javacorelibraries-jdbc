@@ -1,26 +1,21 @@
 package com.pluralsight.corejdbc.m5c4;
 
-import java.sql.SQLException;
-
-public class Main  {
+public class Main {
 
 	public static void main(String[] args) throws Exception {
-
 		try {
-			int orderNumber = 10421;
-			String productCode = "S18_2795";
+			String employeeNumber = "1705";
 
-			OrderComponent comp = new OrderComponent();
+			HrComponent comp = new HrComponent();
+
+			boolean success = comp.deleteEmployee(employeeNumber);
+			System.out.println(	" Employee " 
+							   	+ employeeNumber 
+								+ " has "
+								+ (success ? "deleted" : "not been deleted"));
 			
-			int count = comp.deleteOrderline(orderNumber, productCode);
-
-			System.out.println(count + " records deleted");
-
 		} catch (Exception exception) {
 			util.ExceptionHandler.handleException(exception);
 		}
-
 	}
-
-
 }
