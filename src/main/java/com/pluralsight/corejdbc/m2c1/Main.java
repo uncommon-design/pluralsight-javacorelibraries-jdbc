@@ -1,7 +1,5 @@
 package com.pluralsight.corejdbc.m2c1;
 
-import java.awt.Color;
-import util.PrintUtil;
 
 public class Main {
 
