@@ -13,23 +13,24 @@ public class ProductComponent {
 		Connection connection = DriverManager.getConnection(
 				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 
-		CallableStatement callableStatement = connection.prepareCall("{call listProductsFor(?)}");
+		CallableStatement callableStatement = 
+				connection.prepareCall("{call listProductsFor(?)}");
 
 		callableStatement.setString(1, productLine);
 
 		boolean success = callableStatement.execute();
-
+		
 		if (success) {
-			ResultSet resultSet = callableStatement.getResultSet();
+			
+			ResultSet resultSet = callableStatement.getResultSet();		
 
 			while (resultSet.next()) {
 				String name = resultSet.getString("productName");
 				System.out.println(name);
 			}
-
+			
 			resultSet.close();
 		}
-
 		callableStatement.close();
 		connection.close();
 
