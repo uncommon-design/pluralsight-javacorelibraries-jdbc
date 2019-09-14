@@ -75,16 +75,19 @@ public class Demo {
 				com.pluralsight.corejdbc.m5c4.Main.main(null);
 				break;
 			case "m6c1":
-				if (args.length == 2) {
-					if(args[1].equalsIgnoreCase("STORE")) {
+				if (args.length == 3) {
+					if(args[1].equalsIgnoreCase("CLOB") && args[2].equalsIgnoreCase("STORE")) {
 						com.pluralsight.corejdbc.m6c1.Main_CLOB_Store.main(null);
-					}else {
+					}else if(args[1].equalsIgnoreCase("CLOB") && args[2].equalsIgnoreCase("READ")) {
 						com.pluralsight.corejdbc.m6c1.Main_CLOB_Read.main(null);
+					}else if(args[1].equalsIgnoreCase("BLOB") && args[2].equalsIgnoreCase("STORE")) {
+						com.pluralsight.corejdbc.m6c1.Main_BLOB_Store.main(null);
+					}else if(args[1].equalsIgnoreCase("BLOB") && args[2].equalsIgnoreCase("READ")) {
+						com.pluralsight.corejdbc.m6c1.Main_BLOB_Read.main(null);
 					}
 				} else {
 					System.out.println("You must secify which main you wish to run:");
-					System.out.println("Either: java -cp target/corejdbc.jar Demo m6c2 STORE");
-					System.out.println("    Or: java -cp target/corejdbc.jar Demo m6c2 READ");
+					System.out.println("Syntax: java -cp target/corejdbc.jar Demo m6c2 [CLOB,BLOB] [STORE,READ]");
 				}
 				break;
 			case "m6c2":

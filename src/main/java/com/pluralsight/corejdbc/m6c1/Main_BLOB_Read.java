@@ -10,7 +10,7 @@ public class Main_BLOB_Read {
 		try {
 			ProductComponent comp = new ProductComponent();
 
-			String fileName = "Plans_Image.png";
+			String fileName = "Planes_Image.png";
 			String prodLine = "Planes";
 
 			InputStream inStream = comp.readBLOB(prodLine);
