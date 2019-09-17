@@ -5,8 +5,8 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 
 		try {
-			ProductsComponent comp = new ProductsComponent();
-			comp.printProductList();
+			OrderComponent comp = new OrderComponent();
+			comp.printOrdersByStatus("In Process");
 		} catch (Exception exception) {
 			util.ExceptionHandler.handleException(exception);
 		}

@@ -105,6 +105,9 @@ public class Demo {
 					System.out.println("    Or: java -cp target/corejdbc.jar Demo m6c2 INOUT");
 				}
 				break;
+			case "m7c1":
+				com.pluralsight.corejdbc.m7c1.Main.main(null);
+				break;
 			default:
 				inValidMessage();
 
