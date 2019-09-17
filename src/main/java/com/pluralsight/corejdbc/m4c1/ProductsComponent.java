@@ -19,8 +19,8 @@ public class ProductsComponent {
 		while(resultSet.next()) {
 			String name = resultSet.getString("productName");
 			System.out.println(name);
-		}		
-		
+		}
+
 		resultSet.close();
 		statement.close();
 		connection.close();

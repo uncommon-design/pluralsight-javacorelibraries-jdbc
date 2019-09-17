@@ -62,6 +62,9 @@ public class Demo {
 			case "m4c5":
 				com.pluralsight.corejdbc.m4c5.Main.main(null);
 				break;
+			case "m4c6":
+				com.pluralsight.corejdbc.m4c6.Main.main(null);
+				break;
 			case "m5c1":
 				com.pluralsight.corejdbc.m5c1.Main.main(null);
 				break;
