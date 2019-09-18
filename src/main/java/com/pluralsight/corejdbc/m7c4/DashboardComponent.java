@@ -21,7 +21,7 @@ public class DashboardComponent {
 	
 	public FilteredRowSet populateOrderDetailsFilter() throws Exception {
 
-		String queryString = "select * from orderdetails WHERE priceEach > 200.0";
+		String queryString = "select * from orderdetails WHERE priceEach";
 		
 		RowSetFactory rowSetProvider = RowSetProvider.newFactory();
 		JdbcRowSet jcbcRowSet = rowSetProvider.createJdbcRowSet();
