@@ -111,6 +111,9 @@ public class Demo {
 			case "m7c2":
 				com.pluralsight.corejdbc.m7c2.Main.main(null);
 				break;
+			case "m7c3":
+				com.pluralsight.corejdbc.m7c3.Main.main(null);
+				break;
 			default:
 				inValidMessage();
 
