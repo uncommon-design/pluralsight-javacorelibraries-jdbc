@@ -1,4 +1,4 @@
-package com.pluralsight.corejdbc.m7c5;
+package util;
 
 import javax.sql.rowset.RowSetFactory;
 import javax.sql.rowset.RowSetProvider;

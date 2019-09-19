@@ -1,8 +1,5 @@
 package com.pluralsight.corejdbc.m7c4;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import javax.sql.rowset.CachedRowSet;
 
 public class Main {
@@ -12,8 +9,6 @@ public class Main {
 		try {
 			DashboardComponent comp = new DashboardComponent();
 			CachedRowSet rowSet = comp.orderDetailsPriceGreaterThan(200.0d);
-			
-			rowSet.beforeFirst();
 			
 			// Print out CachedRowSet
 			while (rowSet.next()) {

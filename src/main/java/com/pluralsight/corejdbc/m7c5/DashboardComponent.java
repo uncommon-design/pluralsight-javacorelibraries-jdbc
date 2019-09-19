@@ -1,4 +1,4 @@
-package com.pluralsight.corejdbc.m7c4;
+package com.pluralsight.corejdbc.m7c5;
 
 import javax.sql.rowset.RowSetFactory;
 import javax.sql.rowset.RowSetProvider;
@@ -14,19 +14,17 @@ import javax.sql.rowset.Predicate;
 public class DashboardComponent {
 	
 	private FilteredRowSet orderDetailsFRS;
-	private FilteredRowSet ordersFRS;
-	private FilteredRowSet customersFRS;
 	
 	public DashboardComponent() throws Exception {
-		orderDetailsFRS = populateFilter("select * from orderdetails");
-		ordersFRS = populateFilter("select * from orders");
-		customersFRS = populateFilter("select * from customers");
+		orderDetailsFRS = populateOrderDetailsFilter();
 	}
 	
-	public FilteredRowSet populateFilter(String queryString) throws Exception {
+	public FilteredRowSet populateOrderDetailsFilter() throws Exception {
+
+		String queryString = "select * from orderdetails"; 
 		
-		RowSetFactory rowSetFactory = RowSetProvider.newFactory();
-		JdbcRowSet jcbcRowSet = rowSetFactory.createJdbcRowSet();
+		RowSetFactory rowSetProvider = RowSetProvider.newFactory();
+		JdbcRowSet jcbcRowSet = rowSetProvider.createJdbcRowSet();
 		
 		jcbcRowSet.setUrl("jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 
@@ -34,7 +32,7 @@ public class DashboardComponent {
 
 		jcbcRowSet.execute();
 		
-		FilteredRowSet filteredRowSet = rowSetFactory.createFilteredRowSet();
+		FilteredRowSet filteredRowSet = rowSetProvider.createFilteredRowSet();
 		
 		filteredRowSet.populate(jcbcRowSet);
 		
