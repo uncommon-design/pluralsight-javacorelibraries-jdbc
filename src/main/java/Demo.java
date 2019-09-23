@@ -105,6 +105,9 @@ public class Demo {
 					System.out.println("    Or: java -cp target/corejdbc.jar Demo m6c2 INOUT");
 				}
 				break;
+			case "m6c3":
+				com.pluralsight.corejdbc.m6c3.Main.main(null);
+				break;
 			case "m7c1":
 				com.pluralsight.corejdbc.m7c4.Main.main(null);
 				break;
