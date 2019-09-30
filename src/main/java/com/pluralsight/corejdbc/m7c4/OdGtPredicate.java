@@ -14,7 +14,7 @@ public class OdGtPredicate  implements Predicate{
 		this.target = target;
 	}
 	
-	public boolean test(Double value) {
+	public boolean assess(Double value) {
 		double columnValue = ((Double)value).doubleValue();
         if (columnValue > this.target) {
             return true;
@@ -25,14 +25,14 @@ public class OdGtPredicate  implements Predicate{
 	
 	public boolean evaluate(Object value, int column) {
 	        if (column == this.columnIndex) {
-	            return test((Double)value);
+	            return assess((Double)value);
 	        }
 	        return false;
 	}
 	
 	public boolean evaluate(Object value, String columnName) {
 	        if (columnName.equalsIgnoreCase(this.columnName)) {
-	        	return test((Double)value);
+	        	return assess((Double)value);
 	        }
 	        return false;
 	}
@@ -51,7 +51,7 @@ public class OdGtPredicate  implements Predicate{
                 return false;
             }
 
-            return this.test(columnValue);
+            return this.assess(columnValue);
             
         } catch (Exception e) {
             util.ExceptionHandler.handleException(e);

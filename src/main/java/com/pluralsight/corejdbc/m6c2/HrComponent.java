@@ -4,17 +4,16 @@ import java.sql.DriverManager;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 
-import java.sql.ResultSet;
 
 public class HrComponent {
 
 	public String updateEmail(int employeeNumber, String newEmail) throws Exception {
 
-		Connection connection = DriverManager.getConnection(
+		try(Connection connection = DriverManager.getConnection(
 				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 
 		CallableStatement callableStatement = 
-				connection.prepareCall("{call updateEmail(?,?)}");
+				connection.prepareCall("{call updateEmail(?,?)}");){
 
 		callableStatement.setInt(1, employeeNumber);
 
@@ -25,12 +24,10 @@ public class HrComponent {
 		callableStatement.execute();
 		
 		String oldEmail = callableStatement.getString(2);
-			
-		callableStatement.close();
-		connection.close();
 		
 		return oldEmail;
 
+	}
 	}
 
 }

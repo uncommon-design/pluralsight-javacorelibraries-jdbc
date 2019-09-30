@@ -3,7 +3,7 @@ package com.pluralsight.corejdbc.m4c5;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
-import java.sql.Statement;
+
 import java.sql.ResultSet;
 
 public class ProductsComponent {

@@ -10,11 +10,11 @@ public class ProductComponent {
 
 	public void listProductsBy(String productLine) throws Exception {
 
-		Connection connection = DriverManager.getConnection(
+		try(Connection connection = DriverManager.getConnection(
 				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 
 		CallableStatement callableStatement = 
-				connection.prepareCall("{call listProductsFor(?)}");
+				connection.prepareCall("{call listProductsFor(?)}");){
 
 		callableStatement.setString(1, productLine);
 
@@ -22,18 +22,14 @@ public class ProductComponent {
 		
 		if (success) {
 			
-			ResultSet resultSet = callableStatement.getResultSet();		
+			try(ResultSet resultSet = callableStatement.getResultSet();){		
 
-			while (resultSet.next()) {
-				String name = resultSet.getString("productName");
-				System.out.println(name);
+				while (resultSet.next()) {
+					String name = resultSet.getString("productName");
+					System.out.println(name);
+				}
 			}
-			
-			resultSet.close();
 		}
-		callableStatement.close();
-		connection.close();
-
+		}
 	}
-
 }

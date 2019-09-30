@@ -14,88 +14,88 @@ public class ProductComponent {
 	
 
 	public boolean storeCLOB(String prodLine, InputStreamReader inStream) throws Exception {
-		Connection connection = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
-
+		
 		String sqlString = 
 				"UPDATE productLines SET htmlDescription = ? where productLine = ?";
-		PreparedStatement preparedStatement = connection.prepareStatement(sqlString);
+		
+		try(Connection connection = DriverManager.getConnection(
+				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
+				
+		PreparedStatement preparedStatement = connection.prepareStatement(sqlString);){
 		
 		preparedStatement.setString(2, prodLine);
 		
 		preparedStatement.setCharacterStream(1, inStream);	
 		
-		preparedStatement.executeUpdate();
-		
-		preparedStatement.close();
-		connection.close();
-		inStream.close();
-		
+		preparedStatement.executeUpdate();			
+				
 		return true;
-
+		
+		}
 	}
 	
-	public Reader readCLOB(String prodLine) throws Exception {		
-		Connection connection = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
-
+	public Reader readCLOB(String prodLine) throws Exception {	
 		String sqlString = 
 				"SELECT htmlDescription FROM productLines WHERE productLine = ?";
 		
-		PreparedStatement preparedStatement = connection.prepareStatement(sqlString);
+		try(Connection connection = DriverManager.getConnection(
+				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
+		
+		PreparedStatement preparedStatement = connection.prepareStatement(sqlString);){
 		
 		preparedStatement.setString(1, prodLine);
 		
-		ResultSet resultSet = preparedStatement.executeQuery();
+		try(ResultSet resultSet = preparedStatement.executeQuery();){
 		
-		if(resultSet.next()) {
-			return resultSet.getCharacterStream(1);
-		}else {
-			return null;
-		}		
+			if(resultSet.next()) {
+				return resultSet.getCharacterStream(1);
+			}else {
+				return null;
+			}	
+		}
+		}
 	}
 
 	public boolean storeBLOB(String prodLine, FileInputStream inStream) throws Exception {
-		
-		Connection connection = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
-
 		String sqlString = 
 				"UPDATE productLines SET image = ? where productLine = ?";
-		PreparedStatement preparedStatement = connection.prepareStatement(sqlString);
+		
+		try(Connection connection = DriverManager.getConnection(
+				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
+		PreparedStatement preparedStatement = connection.prepareStatement(sqlString);){
 		
 		preparedStatement.setBinaryStream(1, inStream);
 		
 		preparedStatement.setString(2, prodLine);
 		
 		preparedStatement.executeUpdate();
-		
-		preparedStatement.close();
-		connection.close();
-		inStream.close();
+
 		
 		return true;
+		
+		}
 	}
 	
 	public InputStream readBLOB(String prodLine) throws Exception {
-		
-		Connection connection = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
-
 		String sqlString = 
 				"SELECT image FROM productLines WHERE productLine = ?";
 		
-		PreparedStatement preparedStatement = connection.prepareStatement(sqlString);
+		try(Connection connection = DriverManager.getConnection(
+				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
+
+		
+		PreparedStatement preparedStatement = connection.prepareStatement(sqlString);){
 		
 		preparedStatement.setString(1, prodLine);
 		
-		ResultSet resultSet = preparedStatement.executeQuery();
+		try(ResultSet resultSet = preparedStatement.executeQuery();){
 		
-		if(resultSet.next()) {
-			return resultSet.getBinaryStream(1);
-		}else {
-			return null;
-		}
+			if(resultSet.next()) {
+				return resultSet.getBinaryStream(1);
+			}else {
+				return null;
+			}
+		}}
 	}
 
 

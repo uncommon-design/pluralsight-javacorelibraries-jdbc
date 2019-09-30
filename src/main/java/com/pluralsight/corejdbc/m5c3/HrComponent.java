@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 
 public class HrComponent {
@@ -15,16 +14,16 @@ public class HrComponent {
 							String officeCode, 
 							String jobTitle) throws Exception {
 		
-		Connection connection = DriverManager.getConnection(
+		try(Connection connection = DriverManager.getConnection(
 				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 		
-		PreparedStatement preparedStatement = 
+			PreparedStatement preparedStatement = 
 				connection.prepareStatement(
 				"INSERT INTO employees "
 			  + "(lastName, firstName, extension, email, officeCode, jobTitle) " 
 			  + "VALUES (?, ?, ?, ?, ?, ?)",
 			  
-				Statement.RETURN_GENERATED_KEYS);
+				Statement.RETURN_GENERATED_KEYS);){
 				
 		preparedStatement.setString(1, lastName);
 		preparedStatement.setString(2, firstName);
@@ -34,19 +33,19 @@ public class HrComponent {
 		preparedStatement.setString(6, jobTitle);
 		
 		preparedStatement.executeUpdate();
-		ResultSet resultSet = preparedStatement.getGeneratedKeys();
-		int autogenkey = 0;
 		
-		if(resultSet.next()) {
-			autogenkey = resultSet.getInt(1);
-		}
-
-		resultSet.close();
-		preparedStatement.close();
-		connection.close();
+		try(ResultSet resultSet = preparedStatement.getGeneratedKeys();){
+			
+			int autogenkey = 0;
 		
-		return autogenkey;
-		
+			if(resultSet.next()) {
+				autogenkey = resultSet.getInt(1);
+			}
+			
+			
+			return autogenkey;
+			
+		}}	
 	}
 	
 	public int replaceSalesManager(String managerBeingReplaced, String replacementManager) throws Exception{

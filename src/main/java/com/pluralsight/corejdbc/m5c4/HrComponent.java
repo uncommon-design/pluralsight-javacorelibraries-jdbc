@@ -10,21 +10,21 @@ public class HrComponent {
 
 	public boolean deleteEmployee(String employeeNumber) throws Exception {
 
-		Connection connection = DriverManager.getConnection(
+		try(Connection connection = DriverManager.getConnection(
 				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 
 		PreparedStatement preparedStatement = connection
-				.prepareStatement("DELETE FROM employees WHERE employeeNumber = ?");
+				.prepareStatement("DELETE FROM employees WHERE employeeNumber = ?");){
 
 		preparedStatement.setString(1, employeeNumber);
 		
 		int count = preparedStatement.executeUpdate();
 
-		preparedStatement.close();
-		connection.close();
-
 		return count > 0 ? true : false;
-
+		
+		}
+		
+		
 	}
 
 	public int addEmployee(String lastName, String firstName, String extension, String email, String officeCode,

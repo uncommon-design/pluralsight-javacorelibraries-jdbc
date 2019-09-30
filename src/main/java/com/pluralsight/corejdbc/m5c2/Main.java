@@ -11,6 +11,7 @@ public class Main {
 
 			int count = comp.replaceSalesManager(fromManager, toManager);
 			System.out.println(count + " Employees have been reassigned");
+			System.out.println("\n\n 6 \n");
 			
 		} catch (Exception exception) {
 			util.ExceptionHandler.handleException(exception);

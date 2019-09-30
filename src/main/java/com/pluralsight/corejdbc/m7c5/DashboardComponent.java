@@ -3,14 +3,10 @@ package com.pluralsight.corejdbc.m7c5;
 import javax.sql.rowset.RowSetFactory;
 import javax.sql.rowset.RowSetProvider;
 
-import java.sql.SQLException;
-
-import javax.sql.RowSet;
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.FilteredRowSet;
 import javax.sql.rowset.JdbcRowSet;
 import javax.sql.rowset.JoinRowSet;
-import javax.sql.rowset.Predicate;
 
 public class DashboardComponent {
 	

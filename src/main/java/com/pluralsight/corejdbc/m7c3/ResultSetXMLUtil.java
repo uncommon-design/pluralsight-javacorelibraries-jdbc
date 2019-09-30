@@ -14,12 +14,14 @@ public class ResultSetXMLUtil {
 	public void resultSetToXML(ResultSet resultSet, String fileName) throws Exception {
 			
 		RowSetFactory rowSetProvider = RowSetProvider.newFactory();
-		WebRowSet rowSet = rowSetProvider.createWebRowSet();
+		try(WebRowSet rowSet = rowSetProvider.createWebRowSet();
+			FileWriter fileWriter = new FileWriter(fileName);){
 		
 		rowSet.populate(resultSet);
-		
-		FileWriter fileWriter = new FileWriter(fileName);
+
 		rowSet.writeXml(fileWriter);
+		
+		}
 	}
 	
 	public CachedRowSet xmlToRowSet(String filePath) throws Exception {

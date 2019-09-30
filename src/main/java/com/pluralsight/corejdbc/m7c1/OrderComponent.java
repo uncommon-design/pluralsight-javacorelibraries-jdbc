@@ -11,7 +11,8 @@ public class OrderComponent {
 		String queryString = "SELECT * FROM orders WHERE status = ?";
 		
 		RowSetFactory rowSetProvider = RowSetProvider.newFactory();
-		JdbcRowSet rowSet = rowSetProvider.createJdbcRowSet();
+		
+		try(JdbcRowSet rowSet = rowSetProvider.createJdbcRowSet();){
 		
 		rowSet.setUrl("jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 
@@ -29,6 +30,6 @@ public class OrderComponent {
 			System.out.println(customerNumber + " " + orderNumber + " " + status);
 		}
 		
-		rowSet.close();
+		}
 	}
 }

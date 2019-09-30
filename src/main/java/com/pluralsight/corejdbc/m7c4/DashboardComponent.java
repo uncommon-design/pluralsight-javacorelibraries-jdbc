@@ -3,13 +3,10 @@ package com.pluralsight.corejdbc.m7c4;
 import javax.sql.rowset.RowSetFactory;
 import javax.sql.rowset.RowSetProvider;
 
-import java.sql.SQLException;
-
-import javax.sql.RowSet;
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.FilteredRowSet;
 import javax.sql.rowset.JdbcRowSet;
-import javax.sql.rowset.Predicate;
+
 
 public class DashboardComponent {
 	
@@ -26,7 +23,8 @@ public class DashboardComponent {
 	public FilteredRowSet populateFilter(String queryString) throws Exception {
 		
 		RowSetFactory rowSetFactory = RowSetProvider.newFactory();
-		JdbcRowSet jcbcRowSet = rowSetFactory.createJdbcRowSet();
+		
+		try(JdbcRowSet jcbcRowSet = rowSetFactory.createJdbcRowSet();){
 		
 		jcbcRowSet.setUrl("jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
 
@@ -39,6 +37,7 @@ public class DashboardComponent {
 		filteredRowSet.populate(jcbcRowSet);
 		
 		return filteredRowSet;
+		}
 	}
 	
 	public CachedRowSet orderDetailsPriceGreaterThan(Double target) throws Exception {
