@@ -14,8 +14,6 @@ public class ConnectionPool {
     	HikariConfig config = new HikariConfig();
         config.setJdbcUrl( "jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC" );
         
-        // set more configuration properties
-        
         dataSource = new HikariDataSource( config );
         dataSource.setMaximumPoolSize(4);
     }
