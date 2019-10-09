@@ -1,4 +1,4 @@
-package com.pluralsight.corejdbc.m6c3;
+package com.pluralsight.corejdbc.m7c1;
 
 import java.sql.Connection;
 import java.sql.SQLException;

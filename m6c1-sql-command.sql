@@ -1,1 +1,0 @@
-ALTER TABLE productlines MODIFY htmlDescription mediumtext CHARACTER SET utf8mb4;

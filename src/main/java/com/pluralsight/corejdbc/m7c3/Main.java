@@ -1,10 +1,9 @@
 package com.pluralsight.corejdbc.m7c3;
 
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import javax.sql.rowset.CachedRowSet;
 
@@ -12,30 +11,29 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 
-		String fileName = "employees.xml";
-
-		ResultSetXMLUtil comp = new ResultSetXMLUtil();
-
-		try (Connection connection = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
-		Statement statement = connection.createStatement();
-		ResultSet resultSet = statement.executeQuery("select * from employees");) {
-
-		// Read from database and write to file
-		comp.resultSetToXML(resultSet, fileName);
-
-		// Convert XML file to CachedRowSet
-		try(CachedRowSet rowSet = comp.xmlToRowSet(fileName);){
-
-		// Print out CachedRowSet
-		while (rowSet.next()) {
-			int employeeNumber = rowSet.getInt("employeeNumber");
-			String lastName = rowSet.getString("lastName");
-			String firstName = rowSet.getString("firstName");
-
-			System.out.println(employeeNumber + " " + firstName + " " + lastName);
-		}
-
+		String status = "In Process";
+		OrderComponent comp = new OrderComponent();
+		
+		try(CachedRowSet rowSet1 = comp.ordersByStatus(status);
+		FileOutputStream fout = new FileOutputStream("row_set_serialized.ser");
+		ObjectOutputStream oos = new ObjectOutputStream(fout);){
+		
+		oos.writeObject(rowSet1);
+		fout.close();
+		oos.close();
+		
+		// Read CachedRowSet from file
+		try(FileInputStream fin = new FileInputStream("row_set_serialized.ser");
+			ObjectInputStream ois = new ObjectInputStream(fin);
+			CachedRowSet rowSet2 = (CachedRowSet)ois.readObject();){
+			
+			// Print out CachedRowSet
+			while (rowSet2.next()) {
+				int customerNumber = rowSet2.getInt("customerNumber");
+				int orderNumber = rowSet2.getInt("orderNumber");
+				System.out.println(customerNumber + " " + orderNumber + " " + status);
+			}
+			
 		}} catch (Exception exception) {
 			util.ExceptionHandler.handleException(exception);
 		}

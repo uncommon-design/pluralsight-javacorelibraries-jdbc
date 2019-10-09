@@ -5,7 +5,7 @@ import util.PrintUtil;
 
 public class Demo {
 
-	public static void main(String[] args) throws Exception {
+	public static void main (String[] args) throws Exception {
 		if (args.length == 0) {
 			Demo.inValidMessage();
 			return;
@@ -105,23 +105,25 @@ public class Demo {
 					System.out.println("    Or: java -cp target/corejdbc.jar Demo m6c2 INOUT");
 				}
 				break;
-			case "m6c3":
-				com.pluralsight.corejdbc.m6c3.Main.main(null);
-				break;
 			case "m7c1":
-				com.pluralsight.corejdbc.m7c4.Main.main(null);
+				com.pluralsight.corejdbc.m7c1.Main.main(null);
 				break;
 			case "m7c2":
-				com.pluralsight.corejdbc.m7c2.Main.main(null);
+				if (args.length == 2) {
+					if (args[1].equalsIgnoreCase("AC")) {
+						com.pluralsight.corejdbc.m7c2.Main_AutoCommit.main(null);
+						break;
+					} else if (args[1].equalsIgnoreCase("MC")) {
+						com.pluralsight.corejdbc.m7c2.Main_ManualCommit.main(null);
+						break;
+					}
+				}
+				System.out.println("You must secify which main you wish to run: AC or MC");
+				System.out.println("For example: java -cp target/corejdbc.jar Demo m4c2 MC");
+
 				break;
 			case "m7c3":
 				com.pluralsight.corejdbc.m7c3.Main.main(null);
-				break;
-			case "m7c4":
-				com.pluralsight.corejdbc.m7c4.Main.main(null);
-				break;
-			case "m7c5":
-				com.pluralsight.corejdbc.m7c5.Main.main(null);
 				break;
 			default:
 				inValidMessage();
