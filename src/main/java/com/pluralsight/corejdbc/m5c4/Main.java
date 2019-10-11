@@ -12,7 +12,7 @@ public class Main {
 			System.out.println(	" Employee " 
 							   	+ employeeNumber 
 								+ " has "
-								+ (success ? "deleted" : "not been deleted"));
+								+ (success ? "been deleted" : "not been deleted"));
 			
 		} catch (Exception exception) {
 			util.ExceptionHandler.handleException(exception);
