@@ -39,7 +39,7 @@ public class OrderComponent_MC {
 
 			String sqlStr = 
 					"INSERT INTO orderdetails "
-					+ "(orderNumber, productCode, quantityOrdered, "
+					+ "(orderNumber, productCode_x, quantityOrdered, "
 					+  "priceEach, orderLineNumber) "
 					+ "VALUES (?,?,?,?,?)";
 			
